@@ -1,0 +1,137 @@
+@font-face {
+    font-family: "cynthopro";
+    url("fonts/CynthoPro-Italic.otf") format("truetype");
+    font-weight: normal;
+    font-style: italic;
+}
+@font-face {
+    font-family: "cynthopro1";
+    src: url("fonts/CynthoPro-Bold.otf") format("truetype");
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+    font-family: "cynthopro2";
+    src: url("fonts/CynthoPro-Light.otf") format("truetype");
+    font-weight: 300;
+    font-style: normal;
+}
+@font-face {
+    font-family: "cynthopro3";
+    src: url("CynthoPro-Regular.otf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: "fontspring";
+    src: url("fonts/Fontspring-DEMO-gibson-bold.otf") format("truetype");
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+    font-family: "fontspring1";
+    src: url("fonts/Fontspring-DEMO-gibson-italic.otf") format("truetype");
+    font-weight: normal;
+    font-style: italic;
+}
+@font-face {
+    font-family: "fontspring2";
+    src: ("fonts/Fontspring-DEMO-gibson-light.otf") format("truetype");
+    font-weight: 300;
+    font-style: normal;
+}
+@font-face {
+    font-family: "fontspring3";
+    url("fonts/Fontspring-DEMO-gibson-regular.otf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+body {
+  font-family: "cynthopro2", sans-serif;
+  text-align: center;
+  background-color: #f9f9f9;
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  position: sticky;
+  font-family: "cynthopro2", sans-serif;
+  top: 0;
+  background-color: #f9f9f9;
+  padding: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  padding: 10px 0;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin: 8px;
+}
+
+nav ul li a {
+  background-color: transparent;
+  border-radius: 0px;
+  color: #000;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 10px 30px;
+}
+
+nav ul li a.active {
+  background-color: #add;
+  font-weight: bold;
+  color: #000;
+}
+
+.profile-pic {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 3px solid #8158c2;
+  margin-top: 70px;
+}
+
+.profile h1 {
+  margin-top: 10px;
+}
+
+.social-icons {
+  margin-top: 180px;
+  background-color: #333;
+  padding: 30px;
+  text-align: center;
+  min-height: 100px;
+}
+
+.social-icons a {
+  margin: 0 10px;
+  display: inline-block;
+}
+
+.social-icons img {
+  width: 40px;
+  height: 40px;
+  transition: transform 0.3s;
+  border-radius: 20%;
+}
+
+.social-icons img:hover {
+  transform: scale(1.2);
+}
+
+home-text {
+  font-size: 14px;
+  font-style: "cynthopro", sans-serif;
+  color: #333;
+  margin-top: 20px;
+}

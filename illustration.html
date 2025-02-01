@@ -7,16 +7,56 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="commission.html">Commission</a></li>
-        <li><a href="illustration.html">Illustration</a></li>
-        <li><a href="about.html">About</a></li>
-      </ul>
-    </nav>
-
+    <div id="nav-placeholder"></div>
+    <script src="script.js"></script>
     <h1>Halaman Commission</h1>
     <p>Isi halaman commission...</p>
+
+    <div class="illustration-wrapper">
+      <button id="prev">L</button>
+      <div class="illustration-container">
+        <div class="illustration">
+          <img
+            src="illustration/illustration0.jpg"
+            alt="Illustration 0: Description of illustration 0"
+            onclick="openLightbox(this)"
+          />
+          <img
+            src="illustration/illustration1.jpg"
+            alt="Illustration 1: Description of illustration 1"
+            onclick="openLightbox(this)"
+          />
+          <img
+            src="illustration/illustration2.jpg"
+            alt="Illustration 2: Description of illustration 2"
+            onclick="openLightbox(this)"
+          />
+          <img
+            src="illustration/illustration3.jpg"
+            alt="Illustration 3: Description of illustration 3"
+            onclick="openLightbox(this)"
+          />
+          <img
+            src="illustration/illustration4.jpg"
+            alt="Illustration 4: Description of illustration 4"
+            onclick="openLightbox(this)"
+          />
+          <img
+            src="illustration/illustration5.jpg"
+            alt="Illustration 5: Description of illustration 5"
+            onclick="openLightbox(this)"
+          />
+        </div>
+      </div>
+      <button id="next">R</button>
+    </div>
+
+    <div id="lightbox" class="lightbox">
+      <span class="close" onclick="closeLightbox()">&times;</span>
+      <img class="lightbox-img" id="lightbox-img" />
+      <div id="lightbox-caption" class="lightbox-caption"></div>
+      <button class="prev" onclick="changeImage(-1)">&#10094;</button>
+      <button class="next" onclick="changeImage(1)">&#10095;</button>
+    </div>
   </body>
 </html>

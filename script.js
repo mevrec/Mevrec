@@ -36,6 +36,18 @@ document.addEventListener("DOMContentLoaded", function () {
       const navPlaceholder = document.getElementById("nav-placeholder");
       if (navPlaceholder) {
         navPlaceholder.innerHTML = data;
+
+        // Set active link in the navigation bar
+        const currentPath = window.location.pathname.split("/").pop();
+        const navLinks = document.querySelectorAll("#navbar .nav-link");
+
+        navLinks.forEach((link) => {
+          if (link.getAttribute("href") === currentPath) {
+            link.classList.add("active");
+          } else {
+            link.classList.remove("active");
+          }
+        });
       } else {
         console.error("Element #nav-placeholder tidak ditemukan!");
       }
@@ -79,12 +91,62 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 
   // Existing code for scrolling functionality
-  const container = document.querySelector(".illustration-container");
-  document.getElementById("prev").addEventListener("click", () => {
-    container.scrollBy({ left: -300, behavior: "smooth" });
-  });
-  document.getElementById("next").addEventListener("click", () => {
-    container.scrollBy({ left: 300, behavior: "smooth" });
+  const containers = document.querySelectorAll(".illustration-container");
+  containers.forEach((container, index) => {
+    document
+      .getElementById(`prev${index + 1}`)
+      .addEventListener("click", () => {
+        container.scrollBy({ left: -300, behavior: "smooth" });
+      });
+    document
+      .getElementById(`next${index + 1}`)
+      .addEventListener("click", () => {
+        container.scrollBy({ left: 300, behavior: "smooth" });
+      });
+
+    // Enable scrolling using fingers on phones
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    container.addEventListener("mousedown", (e) => {
+      isDown = true;
+      startX = e.pageX - container.offsetLeft;
+      scrollLeft = container.scrollLeft;
+    });
+
+    container.addEventListener("mouseleave", () => {
+      isDown = false;
+    });
+
+    container.addEventListener("mouseup", () => {
+      isDown = false;
+    });
+
+    container.addEventListener("mousemove", (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - container.offsetLeft;
+      const walk = (x - startX) * 3; //scroll-fast
+      container.scrollLeft = scrollLeft - walk;
+    });
+
+    container.addEventListener("touchstart", (e) => {
+      isDown = true;
+      startX = e.touches[0].pageX - container.offsetLeft;
+      scrollLeft = container.scrollLeft;
+    });
+
+    container.addEventListener("touchend", () => {
+      isDown = false;
+    });
+
+    container.addEventListener("touchmove", (e) => {
+      if (!isDown) return;
+      const x = e.touches[0].pageX - container.offsetLeft;
+      const walk = (x - startX) * 3; //scroll-fast
+      container.scrollLeft = scrollLeft - walk;
+    });
   });
 
   // Existing code for lightbox functionality
